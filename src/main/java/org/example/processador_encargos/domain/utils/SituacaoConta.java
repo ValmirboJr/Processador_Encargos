@@ -1,4 +1,4 @@
-package org.example.processador_encargos.domain;
+package org.example.processador_encargos.domain.utils;
 
 public enum SituacaoConta {
     ATIVA,
