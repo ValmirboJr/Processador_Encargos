@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.processador_encargos.domain.SituacaoConta;
+import org.example.processador_encargos.domain.utils.SituacaoConta;
 
 import java.util.UUID;
 
@@ -12,7 +12,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RespoonseStatusEvent {
+public class ResponseStatusEvent {
     private UUID contaId;
     private UUID lancamentoId;
     private SituacaoConta situacaoConta;
