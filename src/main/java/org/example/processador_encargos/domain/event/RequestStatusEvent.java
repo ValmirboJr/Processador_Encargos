@@ -1,4 +1,17 @@
 package org.example.processador_encargos.domain.event;
 
-public class ConsultaStatusContaEvent {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.UUID;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class RequestStatusEvent {
+    private UUID contaId;
+    private UUID lancamentoId;
 }
