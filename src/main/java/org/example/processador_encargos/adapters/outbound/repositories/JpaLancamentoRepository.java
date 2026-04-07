@@ -1,4 +1,10 @@
 package org.example.processador_encargos.adapters.outbound.repositories;
 
-public interface JdbcLancamentoRepository extends {
+
+import org.example.processador_encargos.adapters.outbound.entities.JpaLancamentoEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.UUID;
+
+public interface JpaLancamentoRepository extends JpaRepository<JpaLancamentoEntity, UUID> {
 }
