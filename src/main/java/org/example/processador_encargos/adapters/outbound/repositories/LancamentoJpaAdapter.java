@@ -32,8 +32,8 @@ public class LancamentoJpaAdapter implements LancamentoPort {
 
     @Override
     public Lancamento buscarPorId(UUID id) {
-       return repository.findById(id)
-               .map(lancamentoMapper::toDomain)
-               .orElseThrow(() -> new RuntimeException("Lançamento não encontrado: " + id));
+        return repository.findById(id)
+                .map(lancamentoMapper::toDomain)
+                .orElseThrow(() -> new RuntimeException("Lançamento não encontrado: " + id));
     }
 }
