@@ -12,6 +12,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RequestStatusEvent {
-    private UUID contaId;
+    private long contaId;
     private UUID lancamentoId;
 }

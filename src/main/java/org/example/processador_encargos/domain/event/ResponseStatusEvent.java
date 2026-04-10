@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResponseStatusEvent {
-    private UUID contaId;
+    private long contaId;
     private UUID lancamentoId;
     private SituacaoConta situacaoConta;
 }
