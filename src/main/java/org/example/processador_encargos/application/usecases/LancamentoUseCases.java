@@ -7,6 +7,6 @@ import java.util.UUID;
 
 public interface LancamentoUseCases {
 
-    void processarLote(List<Lancamento> lancamentos);
+    void processarLote(List<? extends Lancamento> lancamentos);
     Lancamento buscarPorId(UUID id);
 }
