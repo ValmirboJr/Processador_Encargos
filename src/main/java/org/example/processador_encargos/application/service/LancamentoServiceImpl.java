@@ -19,8 +19,8 @@ public class LancamentoServiceImpl implements LancamentoUseCases{
     private final LancamentoKafkaProducer kafkaProducer;
 
     @Override
-    public void processarLote(List<Lancamento> lancamentos) {
-       lancamentos.forEach(l -> l.setCriadoEm(LocalDateTime.now()));
+    public void processarLote(List<? extends Lancamento> lancamentos) {
+        lancamentos.forEach(l -> l.setCriadoEm(LocalDateTime.now()));
         lancamentoPort.salvarTodos(lancamentos);
         lancamentos.forEach(kafkaProducer::publicarRequestStatus);
     }
