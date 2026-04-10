@@ -1,6 +1,8 @@
 spring:
   application:
     name: processador_encargos
+  main:
+    allow-bean-definition-overriding: true
 
   datasource:
     url: jdbc:postgresql://localhost:5434/${DB_NAME}
@@ -30,7 +32,7 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
       group-id: encargos-processor
-      auto-offset-reset: earliest
+      auto-offset-reset: latest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
@@ -39,3 +41,8 @@ spring:
 batch:
   file:
     path: files/Lancamento.csv
+
+logging:
+  level:
+    org.springframework.batch: DEBUG
+    org.hibernate: ERROR
