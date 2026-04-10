@@ -11,7 +11,7 @@ import java.util.UUID;
 public class Lancamento {
 
     private UUID id;
-    private UUID contaId;
+    private long contaId;
     private BigDecimal valor;
     private Encargos encargos;
     private SituacaoConta statusconta;
@@ -21,7 +21,7 @@ public class Lancamento {
 
     public Lancamento() {}
 
-    public Lancamento(UUID id, UUID contaId,BigDecimal valor,Encargos encargos,SituacaoConta statusconta,Processamentopg  processamentopg,LocalDateTime criadoEm,LocalDateTime processadoEm ) {
+    public Lancamento(UUID id, long contaId,BigDecimal valor,Encargos encargos,SituacaoConta statusconta,Processamentopg  processamentopg,LocalDateTime criadoEm,LocalDateTime processadoEm ) {
         this.id = id;
         this.contaId = contaId;
         this.valor = valor;
@@ -40,11 +40,11 @@ public class Lancamento {
         this.id = id;
     }
 
-    public UUID getContaId() {
+    public Long getContaId() {
         return contaId;
     }
 
-    public void setContaId(UUID contaId) {
+    public void setContaId(Long contaId) {
         this.contaId = contaId;
     }
 
