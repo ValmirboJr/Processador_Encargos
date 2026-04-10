@@ -22,15 +22,12 @@ public class JpaLancamentoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private UUID contaId;
+    private long contaId;
     private BigDecimal valor;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private Encargos encargos;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private SituacaoConta statusconta;
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Processamentopg processamentopg;
     private LocalDateTime criadoEm;
