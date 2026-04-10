@@ -1,5 +1,6 @@
 package org.example.processador_encargos.adapters.inbound.batch;
 
+import org.example.processador_encargos.application.usecases.LancamentoUseCases;
 import org.example.processador_encargos.domain.Lancamento;
 import org.example.processador_encargos.domain.LancamentoPort;
 import org.springframework.batch.core.configuration.annotation.StepScope;
@@ -12,14 +13,14 @@ import org.springframework.stereotype.Component;
 @StepScope
 public class LancamentoWriter implements ItemWriter<Lancamento> {
 
-    private final LancamentoPort lancamentoPort ;
+    private final LancamentoUseCases lancamentoUseCases;
 
-    public LancamentoWriter(LancamentoPort lancamentoPort) {
-        this.lancamentoPort = lancamentoPort;
+    public LancamentoWriter(LancamentoUseCases lancamentoUseCases) {
+        this.lancamentoUseCases = lancamentoUseCases;
     }
 
     @Override
     public void write(Chunk<? extends Lancamento> chunk) {
-        lancamentoPort.salvarTodos(chunk.getItems());
+        lancamentoUseCases.processarLote(chunk.getItems());
     }
 }

@@ -19,20 +19,19 @@ public class LancamentoReader implements ItemReader<Lancamento> {
 
     @BeforeStep
     public void init(StepExecution stepExecution) {
-        ExecutionContext ctx = stepExecution.getExecutionContext();
-        String filePath = ctx.getString("filePath");
+        String path = stepExecution.getJobParameters().getString("filePath");
 
         this.delegate = new FlatFileItemReaderBuilder<Lancamento>()
                 .name("lancamentoReader")
-                .resource(new FileSystemResource(filePath))
-                .linesToSkip(0)
+                .resource(new FileSystemResource(path))
                 .delimited()
                 .delimiter(";")
-                .names("id", "contaId", "valor", "encargos")
+                .names("contaId", "valor", "encargos")
                 .targetType(Lancamento.class)
+                .saveState(false)
                 .build();
 
-        this.delegate.open(ctx);
+        this.delegate.open(stepExecution.getExecutionContext());
     }
 
     @Override
