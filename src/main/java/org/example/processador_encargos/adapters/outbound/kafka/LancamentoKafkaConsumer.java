@@ -17,6 +17,7 @@ import java.util.List;
 public class LancamentoKafkaConsumer {
 
     private final LancamentoPort lancamentoPort;
+    private final LancamentoKafkaProducer kafkaProducer;
 
     @KafkaListener(topics = "response-status-conta",
             groupId = "encargos-processor")
@@ -29,6 +30,7 @@ public class LancamentoKafkaConsumer {
 
         if (event.getSituacaoConta() == SituacaoConta.ATIVA) {
             lancamento.setProcessamentopg(Processamentopg.APROVADO);
+            kafkaProducer.publicarLancamentoContabil(lancamento);
         } else {
             lancamento.setProcessamentopg(Processamentopg.RECUSADO);
         }
